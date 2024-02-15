@@ -1,0 +1,74 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d1393a8e-af98-4832-9b0a-28df776b0f7e</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>vista\Login.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>BeatBldr2.0</Name>
+    <RootNamespace>BeatBldr2.0</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BeatBldr2.0.py" />
+    <Compile Include="controlador\controladorUsers.py" />
+    <Compile Include="controlador\gestores\Artists.py" />
+    <Compile Include="controlador\gestores\Genres.py" />
+    <Compile Include="controlador\gestores\Playlist.py" />
+    <Compile Include="controlador\gestores\Songs.py" />
+    <Compile Include="controlador\gestores\Users.py" />
+    <Compile Include="controlador\instancias\Artist.py" />
+    <Compile Include="controlador\instancias\Genre.py" />
+    <Compile Include="controlador\instancias\Song.py" />
+    <Compile Include="controlador\instancias\User.py" />
+    <Compile Include="controlador\controladorGenres.py" />
+    <Compile Include="modelo\mock.py" />
+    <Compile Include="vista\CanbioPss.py" />
+    <Compile Include="vista\Login.py" />
+    <Compile Include="vista\EleccionGeneros.py" />
+    <Compile Include="vista\NuevoUsu.py" />
+    <Compile Include="vista\PantallaEleccion.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controlador\" />
+    <Folder Include="controlador\gestores\" />
+    <Folder Include="controlador\gestores\__pycache__\" />
+    <Folder Include="controlador\instancias\" />
+    <Folder Include="controlador\instancias\__pycache__\" />
+    <Folder Include="controlador\__pycache__\" />
+    <Folder Include="modelo\" />
+    <Folder Include="modelo\__pycache__\" />
+    <Folder Include="vista\" />
+    <Folder Include="vista\__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="controlador\gestores\__pycache__\Users.cpython-312.pyc" />
+    <Content Include="controlador\instancias\__pycache__\User.cpython-312.pyc" />
+    <Content Include="controlador\__pycache__\ControladorUser.cpython-312.pyc" />
+    <Content Include="controlador\__pycache__\controladorUsers.cpython-312.pyc" />
+    <Content Include="modelo\__pycache__\mock.cpython-312.pyc" />
+    <Content Include="vista\__pycache__\CanbioPss.cpython-312.pyc" />
+    <Content Include="vista\__pycache__\Login.cpython-312.pyc" />
+    <Content Include="vista\__pycache__\NuevoUsu.cpython-312.pyc" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

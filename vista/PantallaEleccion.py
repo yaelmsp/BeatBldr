@@ -1,0 +1,22 @@
+# from PySide6 import QtCore, QtWidgets, QtGui
+from PySide6.QtWidgets import (
+    QApplication,QInputDialog,QWidget)
+from vista.EleccionGeneros import Generos
+
+class Eleccion(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Elegir oyentes")
+        self.elegirOyentes()
+        # Le damos un tamaño y un título
+    def elegirOyentes(self):
+        oyente, confirmado = QInputDialog.getInt(
+        self, "Oyente", "Elige los oyentes de la playlist Oyentes", minValue=1, maxValue=4)
+        if confirmado:
+            self.mostrarSubVentana(oyente)
+                        
+    def mostrarSubVentana(self,oyente):
+        self.subventana = Generos(oyente)
+        self.subventana.show()  
+        
+            
