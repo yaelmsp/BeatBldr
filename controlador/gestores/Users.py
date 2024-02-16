@@ -48,6 +48,7 @@ class Users:
                 fin=True
                 respuesta = 1
             elif self.listaUsuario[count].userName == usuarioname and self.listaUsuario[count].password != contraCom:
+                print(self.listaUsuario[count].password)
                 fin=True
                 respuesta= 2
             elif self.listaUsuario[count].userName != usuarioname and self.listaUsuario[count].password != contraCom:
@@ -77,7 +78,8 @@ class Users:
     
     def CAMBIAR_CONTRA(self,usu,passw):
         busqueda=self.BUSCAR_POSICION_USUARIO(usu)
-        usuario: User = self.listaUsuario[busqueda]
-        usuario.setpassword=passw
-            
+        usunuevo=self.listaUsuario[busqueda].setpassword=passw       
+        reemplazarUsu=
+        self.listaUsuario.append(nuevousu)
+
           

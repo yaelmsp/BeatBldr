@@ -24,6 +24,7 @@
     <Compile Include="BeatBldr2.0.py" />
     <Compile Include="controlador\controladorUsers.py" />
     <Compile Include="controlador\gestores\Artists.py" />
+    <Compile Include="controlador\controladorArtist.py" />
     <Compile Include="controlador\gestores\Genres.py" />
     <Compile Include="controlador\gestores\Playlist.py" />
     <Compile Include="controlador\gestores\Songs.py" />

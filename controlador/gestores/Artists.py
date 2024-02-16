@@ -3,8 +3,8 @@ from controlador.instancias.Artist import Artist
 
 
 class Artists:
-    def __inti__(self,artist):
-        self.ListaArtistas=artist
+    def __init__(self,artista):
+        self.ListaArtistas=artista
 
     def MOSTRAR_LISTA(self):
         lista=[]

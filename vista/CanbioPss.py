@@ -61,7 +61,8 @@ class CambioPss(QWidget):
         if contra1 != contra2:
             self.mensageErrorContra()
         else:
-            self.controlador_usuario.modificarContrasenia(usuario,contra2) 
+            self.controlador_usuario.modificarContrasenia(usuario,contra2)
+            self.close()
         
             
     def mensageErrorContra(self):
@@ -69,19 +70,11 @@ class CambioPss(QWidget):
          self, "Acerca de", "<p>Error de password</p><p>Las contrasenias no son iguales</p>")
          print(dialogo)
          
-    @Slot
+    @Slot()
     def closeEvent(self,event):
        self.closed.emit()
        super().closeEvent(event)
 
         
-            
-        
-        
-
-# if __name__ == "__main__":
-#     app = QApplication(sys.argv)
-#     window = MainWindow()
-#     window.show()
-#     sys.exit(app.exec_())
+    
 
