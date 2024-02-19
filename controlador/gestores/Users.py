@@ -78,8 +78,6 @@ class Users:
     
     def CAMBIAR_CONTRA(self,usu,passw):
         busqueda=self.BUSCAR_POSICION_USUARIO(usu)
-        usunuevo=self.listaUsuario[busqueda].setpassword=passw       
-        reemplazarUsu=
-        self.listaUsuario.append(nuevousu)
+        self.listaUsuario[busqueda].setpassword=passw       
 
           

@@ -9,5 +9,4 @@ class controladorGenres:
     def mostrar_generos(self):
         return self.gestor_usuarios.MOSTRAR_LISTA()
 
-    mostrar_generos()
 

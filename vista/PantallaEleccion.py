@@ -11,7 +11,7 @@ class Eleccion(QWidget):
         # Le damos un tamaño y un título
     def elegirOyentes(self):
         oyente, confirmado = QInputDialog.getInt(
-        self, "Oyente", "Elige los oyentes de la playlist Oyentes", minValue=1, maxValue=4)
+        self, "Oyente", "Elige los generos que deseas mezclar", minValue=1, maxValue=4)
         if confirmado:
             self.mostrarSubVentana(oyente)
                         

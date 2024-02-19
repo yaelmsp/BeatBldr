@@ -26,11 +26,12 @@
     <Compile Include="controlador\gestores\Artists.py" />
     <Compile Include="controlador\controladorArtist.py" />
     <Compile Include="controlador\gestores\Genres.py" />
-    <Compile Include="controlador\gestores\Playlist.py" />
+    <Compile Include="controlador\gestores\Playlists.py" />
     <Compile Include="controlador\gestores\Songs.py" />
     <Compile Include="controlador\gestores\Users.py" />
     <Compile Include="controlador\instancias\Artist.py" />
     <Compile Include="controlador\instancias\Genre.py" />
+    <Compile Include="controlador\instancias\Playlist.py" />
     <Compile Include="controlador\instancias\Song.py" />
     <Compile Include="controlador\instancias\User.py" />
     <Compile Include="controlador\controladorGenres.py" />
