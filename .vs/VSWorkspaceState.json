@@ -2,11 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\controlador",
-    "\\controlador\\gestores",
-    "\\controlador\\instancias",
-    "\\controlador\\instancias\\__pycache__",
-    "\\vista\\__pycache__"
+    "\\controlador\\gestores"
   ],
-  "SelectedNode": "\\controlador\\gestores\\Artists.py",
+  "SelectedNode": "\\controlador\\gestores\\Users.py",
   "PreviewInSolutionExplorer": false
 }

@@ -1,9 +1,9 @@
 from controlador.gestores.Genres import Genres
-from modelo.mock import CARGAR_LISTA_GENEROS
+from modelo.mock import ListaGeneros
 
 class controladorGenres:
     def __init__(self):  
-        self.generos = CARGAR_LISTA_GENEROS()
+        self.generos = ListaGeneros
         self.gestor_usuarios = Genres(self.generos)
         
     def mostrar_generos(self):

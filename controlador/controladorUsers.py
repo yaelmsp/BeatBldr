@@ -1,9 +1,9 @@
 from controlador.gestores.Users import Users
-from modelo.mock import CARGAR_LISTA_USUARIOS
+from modelo.mock import ListaUsuario
 
 class controladorUsers:
     def __init__(self):  
-        self.usuarios = CARGAR_LISTA_USUARIOS()
+        self.usuarios = ListaUsuario
         self.gestor_usuarios = Users(self.usuarios)
         
     def mostrar_usuarios(self):
