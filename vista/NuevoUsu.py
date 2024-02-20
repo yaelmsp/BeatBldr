@@ -74,16 +74,30 @@ class NuevoUsu(QWidget):
             self, "En ese caso", "<p>No puedes acceder</p><p>a la applicacion</p>")
         # podemos analizar el tipo de botón clicado para actuar en consecuencia
             print(dialogo)
+            
+    def mensageComprobar(self):
+         dialogo = QMessageBox.about(
+         self, "Acerca de", "<p>Error de datos</p><p>Comprueba que esten todos los datos insertados</p>")
+         print(dialogo)
 
     def agregarUsuario(self):
         lista = self.pais.enviarParam()
-        paiseElecci=lista[-1]
         nombre=str(self.huecoUsua.text())
         ape=str(self.huecoApe.text())
         usu= str(self.huecoUsu.text())
         pss=str(self.huecoPss2.text())
-        self.controlador_usuario.agregarUsu(nombre,ape,usu,pss,paiseElecci)
         
+        self.comprobarDatos(lista,nombre,ape,usu,pss)
+        
+    def comprobarDatos(self,nombre,ape,usu,pss,lista):
+        if(not nombre or not ape or not usu or not pss or len(lista) == 0):
+            self.mensageComprobar()
+        else:
+             paiseElecci=lista[-1] 
+             paisFinal=self.controlador_paises.obtener_id(paiseElecci) 
+             self.controlador_usuario.agregarUsu(nombre,ape,usu,pss,paisFinal)
+         
+
 class Dialogo(QDialog):
     def __init__(self,listaPaises):
         super().__init__(None)

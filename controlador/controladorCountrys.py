@@ -9,4 +9,7 @@ class controladorCountrys:
     def mostrar_paises(self):
         return self.gestor_usuarios.MOSTRAR_LISTA()
 
+    def obtener_id(self,pais):
+        posicion= self.gestor_usuarios.BUSCAR_POSICION_PAIS(pais)
+        return posicion +1
 

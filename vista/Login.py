@@ -1,14 +1,12 @@
 
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QApplication, QComboBox,QInputDialog,QWidget,QFormLayout,QDialog,QVBoxLayout,QDialogButtonBox)
+    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QApplication,QWidget,QFormLayout,QVBoxLayout)
 from PySide6.QtCore import Qt
 import sys
 from controlador.controladorUsers import controladorUsers
 from vista.CanbioPss import CambioPss
 from vista.NuevoUsu import NuevoUsu
 from vista.PantallaEleccion import Eleccion
-from controlador.controladorCountrys import controladorCountrys
-
 
 
 class MainWindow(QMainWindow):
@@ -20,8 +18,6 @@ class MainWindow(QMainWindow):
        
         
         self.formulario()
-        # creamos un layout en formulario
-
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.titulo)
              
