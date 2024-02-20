@@ -13,8 +13,8 @@ class controladorUsers:
        rest = self.gestor_usuarios.LOG_IN(nombre,contra)
        return rest
     
-    def agregarUsu(self,nombre,ape,usu,pss):
-        self.gestor_usuarios.AGREGAR_USUARIO(nombre,ape,usu,pss)
+    def agregarUsu(self,nombre,ape,usu,pss,pais):
+        self.gestor_usuarios.AGREGAR_USUARIO(nombre,ape,usu,pss,pais)
         self.mostrar_usuarios()
 
     def modificarContrasenia(self,usu,passw):

@@ -1,12 +1,13 @@
 
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout)
+    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QApplication, QComboBox,QInputDialog,QWidget,QFormLayout,QDialog,QVBoxLayout,QDialogButtonBox)
 from PySide6.QtCore import Qt
 import sys
 from controlador.controladorUsers import controladorUsers
 from vista.CanbioPss import CambioPss
 from vista.NuevoUsu import NuevoUsu
 from vista.PantallaEleccion import Eleccion
+from controlador.controladorCountrys import controladorCountrys
 
 
 
@@ -16,13 +17,14 @@ class MainWindow(QMainWindow):
         self.titulo=QLabel("LOG IN")
         self.titulo.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         self.controlador_usuario=controladorUsers()
+       
         
         self.formulario()
         # creamos un layout en formulario
 
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.titulo)
-        
+             
     def formulario(self):
         formulario = QFormLayout()
 
@@ -77,7 +79,7 @@ class MainWindow(QMainWindow):
         self.registro = NuevoUsu()
         self.registro.show()
        
-            
+ 
 
 
 if __name__ == "__main__":

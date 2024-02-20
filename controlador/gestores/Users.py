@@ -4,7 +4,7 @@ class Users:
     def __init__(self,usuarios):
         self.__listaUsuario=usuarios
         
-    def AGREGAR_USUARIO(self,nombre,ape,usu,pss):
+    def AGREGAR_USUARIO(self,nombre,ape,usu,pss,pais):
          
         id=self.CREAR_ID()
        
@@ -14,9 +14,8 @@ class Users:
             usu=str(input('indique otro nombre usuario del alumno: '))
             posicion=self.BUSCAR_POSICION_USUARIO(usu)
             
-        nuevousu=User(id,nombre,ape,usu,pss)
+        nuevousu=User(id,nombre,ape,usu,pss,pais)
         self.__listaUsuario.append(nuevousu)
-        # self.MOSTRAR_LISTA()
           
     
     def ELIMINAR_USUARIO_BY_USUARIO(self,usuEliminar):
@@ -26,7 +25,6 @@ class Users:
         else:
             print(self.__listaUsuario[posicion].GET_USER())
             self.__listaUsuario.remove(posicion)
-            # self.MOSTRAR_LISTA()
 
     
     def BUSCAR_USUARIO_BY_USUARIO(self):   

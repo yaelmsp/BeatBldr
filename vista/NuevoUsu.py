@@ -1,8 +1,9 @@
 
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox)
+    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox,QComboBox,QDialog)
 from PySide6.QtCore import Qt
 from controlador.controladorUsers import controladorUsers
+from controlador.controladorCountrys import controladorCountrys
 
 
 class NuevoUsu(QWidget):
@@ -10,8 +11,17 @@ class NuevoUsu(QWidget):
         super().__init__()
         self.setWindowTitle("Nuevo Usuario")
         self.controlador_usuario=controladorUsers()
+        self.controlador_paises=controladorCountrys()
+        self.ListaPaises=[]
+        self.ConversionArray()
         
         self.mensages()
+        
+    def ConversionArray(self):
+         gen=self.controlador_paises.mostrar_paises()
+         for pais in gen:
+             self.ListaPaises.append(pais)
+        
         
     def formulario(self):
         formulario = QFormLayout()
@@ -34,12 +44,15 @@ class NuevoUsu(QWidget):
         self.huecoPss2 = QLineEdit()
         self.huecoPss2.setPlaceholderText("Escribe nueva contrasenia")
         self.botonCrear=QPushButton('Crear Usuario')
+        pais=QLabel('Pais: ')
+        self.pais = Dialogo(self.ListaPaises)
 
         # añadimos los elemntos a las columnas
         formulario.addRow(Usuario, self.huecoUsua)
         formulario.addRow(Ape,self.huecoApe)
         formulario.addRow(Usu,self.huecoUsu)
         formulario.addRow(pss2,self.huecoPss2)
+        formulario.addRow(pais,self.pais)
         formulario.addRow(self.botonCrear)
         self.botonCrear.clicked.connect(self.agregarUsuario)
     
@@ -63,11 +76,32 @@ class NuevoUsu(QWidget):
             print(dialogo)
 
     def agregarUsuario(self):
+        lista = self.pais.enviarParam()
+        paiseElecci=lista[-1]
         nombre=str(self.huecoUsua.text())
         ape=str(self.huecoApe.text())
         usu= str(self.huecoUsu.text())
         pss=str(self.huecoPss2.text())
-        self.controlador_usuario.agregarUsu(nombre,ape,usu,pss)
+        self.controlador_usuario.agregarUsu(nombre,ape,usu,pss,paiseElecci)
+        
+class Dialogo(QDialog):
+    def __init__(self,listaPaises):
+        super().__init__(None)
+        self.lista=[]
+        layout = QVBoxLayout()
+        self.setLayout(layout)
+        despleglabe=QComboBox()
+        despleglabe.addItems(listaPaises)
+        layout.addWidget(despleglabe)
+        despleglabe.setCurrentIndex(-1)
+        despleglabe.currentTextChanged.connect(self.texto_cambiado)     
+            
+    def texto_cambiado(self, texto):
+        self.lista.append(texto)
+        
+        
+    def enviarParam(self):
+        return self.lista
 
 
 

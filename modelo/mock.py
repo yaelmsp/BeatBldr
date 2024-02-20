@@ -3,10 +3,12 @@ from controlador.instancias.User import User
 from controlador.instancias.Genre import Genre
 from controlador.instancias.Song import Song
 from controlador.instancias.Playlist import Playlist
+from controlador.instancias.Country import Country
+
 
         
 def CARGAR_LISTA_USUARIOS():
-    ListaUsuario=[User(1,'yael','martinez','yaelmsp','1234'),User(2,'jose','p','joseluuu','1234')]
+    ListaUsuario=[User(1,'yael','martinez','yaelmsp','1234','Espania'),User(2,'jose','p','joseluuu','1234','Alemania')]
     return ListaUsuario
 
 def CARGAR_LISTA_GENEROS():
@@ -25,3 +27,9 @@ def CARGAR_LISTA_SONGS():
 def CARGAR_PLAYIST():
     ListaPlaylists=[Playlist(1,'Playlist Prueba',1)] 
     return ListaPlaylists
+
+def CARGAR_PAISES():
+    ListaPaises=[Country(1,'Espania'),Country(2,'Francia'),Country(3,'Portugal'),Country(4,'Italia'),Country(5,'Alemania'),Country(6,'Holanda'),
+                 Country(7,'Dinamarca'),Country(8,'Suiza'),Country(9,'Suecia'),Country(10,'Islas Britanicas'),Country(11,'Irlanda')]
+    
+    return ListaPaises
