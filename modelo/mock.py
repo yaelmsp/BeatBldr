@@ -9,7 +9,7 @@ from controlador.instancias.Country import Country
         
 # def CARGAR_LISTA_USUARIOS():
 global ListaUsuario
-ListaUsuario=[User(1,'yael','martinez','yaelmsp','1234','Espania'),User(2,'jose','p','joseluuu','1234','Alemania')]
+ListaUsuario=[User(1,'yael','martinez','yaelmsp','1234',1),User(2,'jose','p','joseluuu','1234',4)]
     # return ListaUsuario
 
 # def CARGAR_LISTA_GENEROS():

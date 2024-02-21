@@ -15,7 +15,6 @@ class controladorUsers:
     
     def agregarUsu(self,nombre,ape,usu,pss,pais):
         self.gestor_usuarios.AGREGAR_USUARIO(nombre,ape,usu,pss,pais)
-        self.mostrar_usuarios()
 
     def modificarContrasenia(self,usu,passw):
         self.gestor_usuarios.CAMBIAR_CONTRA(usu,passw)

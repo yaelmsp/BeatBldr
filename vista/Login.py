@@ -74,6 +74,7 @@ class MainWindow(QMainWindow):
     def mostrarRegistro(self):
         self.registro = NuevoUsu()
         self.registro.show()
+        # self.registro.closed.connect(self.show)
        
  
 

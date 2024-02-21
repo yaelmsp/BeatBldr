@@ -1,12 +1,13 @@
 
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox,QComboBox,QDialog)
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt,Slot,Signal
 from controlador.controladorUsers import controladorUsers
 from controlador.controladorCountrys import controladorCountrys
 
 
 class NuevoUsu(QWidget):
+    # closed=Signal()
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Nuevo Usuario")
@@ -87,7 +88,7 @@ class NuevoUsu(QWidget):
         usu= str(self.huecoUsu.text())
         pss=str(self.huecoPss2.text())
         
-        self.comprobarDatos(lista,nombre,ape,usu,pss)
+        self.comprobarDatos(nombre,ape,usu,pss,lista)
         
     def comprobarDatos(self,nombre,ape,usu,pss,lista):
         if(not nombre or not ape or not usu or not pss or len(lista) == 0):
@@ -96,7 +97,10 @@ class NuevoUsu(QWidget):
              paiseElecci=lista[-1] 
              paisFinal=self.controlador_paises.obtener_id(paiseElecci) 
              self.controlador_usuario.agregarUsu(nombre,ape,usu,pss,paisFinal)
-         
+    # @Slot()
+    # def closeEvent(self,event):
+    #    self.closed.emit()
+    #    super().closeEvent(event)
 
 class Dialogo(QDialog):
     def __init__(self,listaPaises):

@@ -56,7 +56,6 @@ class CambioPss(QWidget):
         usuario=self.huecoUsu.text()
         contra1=self.huecoPss.text()
         contra2=self.huecoPss2.text()
-
         
         if contra1 != contra2:
             self.mensageErrorContra()
