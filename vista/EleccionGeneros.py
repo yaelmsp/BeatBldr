@@ -2,6 +2,8 @@ from PySide6.QtWidgets import (
     QApplication, QComboBox,QInputDialog,QWidget,QFormLayout,QDialog,QVBoxLayout,QDialogButtonBox)
 import sys
 from controlador.controladorGenres import controladorGenres
+from vista.App import MainApp
+
 
 
 class Generos(QWidget):
@@ -27,9 +29,15 @@ class Generos(QWidget):
         rest=dialogo.exec()
         if rest:
             lista = dialogo.enviarParam()
-            self.ListaGeneros=set(lista[-self.oyentes:])
+            listaLimpia = self.ListaGeneros=set(lista[-self.oyentes:])
+            self.mostrarApp(listaLimpia)
         else:
             print('ERROR')
+            
+    def mostrarApp(self,generos):
+        self.subventana = MainApp(generos)
+        self.subventana.show()  
+        
        
 #Clase dialogo Eleccion
 class Dialogo(QDialog):

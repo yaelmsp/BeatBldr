@@ -7,7 +7,7 @@ from controlador.controladorCountrys import controladorCountrys
 
 
 class NuevoUsu(QWidget):
-    # closed=Signal()
+    closed=Signal()
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Nuevo Usuario")
@@ -97,10 +97,11 @@ class NuevoUsu(QWidget):
              paiseElecci=lista[-1] 
              paisFinal=self.controlador_paises.obtener_id(paiseElecci) 
              self.controlador_usuario.agregarUsu(nombre,ape,usu,pss,paisFinal)
-    # @Slot()
-    # def closeEvent(self,event):
-    #    self.closed.emit()
-    #    super().closeEvent(event)
+             self.close()
+    @Slot()
+    def closeEvent(self,event):
+       self.closed.emit()
+       super().closeEvent(event)
 
 class Dialogo(QDialog):
     def __init__(self,listaPaises):
@@ -116,8 +117,7 @@ class Dialogo(QDialog):
             
     def texto_cambiado(self, texto):
         self.lista.append(texto)
-        
-        
+          
     def enviarParam(self):
         return self.lista
 

@@ -39,6 +39,7 @@
     <Compile Include="controlador\instancias\User.py" />
     <Compile Include="controlador\controladorGenres.py" />
     <Compile Include="modelo\mock.py" />
+    <Compile Include="vista\App.py" />
     <Compile Include="vista\CanbioPss.py" />
     <Compile Include="vista\Login.py" />
     <Compile Include="vista\EleccionGeneros.py" />
