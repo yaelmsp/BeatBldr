@@ -39,3 +39,13 @@ ListaPaises=[Country(1,'Espania'),Country(2,'Francia'),Country(3,'Portugal'),Cou
                  Country(7,'Dinamarca'),Country(8,'Suiza'),Country(9,'Suecia'),Country(10,'Islas Britanicas'),Country(11,'Irlanda')]
     # return ListaPaises
 
+global ListaGenerosCanciones
+ListaGenerosCanciones=[(1,1,3),(2,1,2),(3,2,2),(4,3,1),(5,4,3),(5,4,1)]
+
+global ListaArtstasCanciones
+ListaArtstasCanciones=[(1,1,1)]
+
+global ListaCancionesPlaylist
+ListaCancionesPlaylist=[(1,1,1)]
+
+

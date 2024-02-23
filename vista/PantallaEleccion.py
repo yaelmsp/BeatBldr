@@ -1,12 +1,12 @@
 # from PySide6 import QtCore, QtWidgets, QtGui
 from PySide6.QtWidgets import (
-    QApplication,QInputDialog,QWidget)
+    QInputDialog,QWidget)
 from vista.EleccionGeneros import Generos
 
 class Eleccion(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Elegir oyentes")
+        self.setWindowTitle("Elegir Oyentes")
         self.elegirOyentes()
         # Le damos un tamaño y un título
     def elegirOyentes(self):

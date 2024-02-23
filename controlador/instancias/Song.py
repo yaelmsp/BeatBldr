@@ -1,13 +1,14 @@
 # from clases.Genre import Genre
+
 class Song:
     def __init__(self,id,nombre,anio_publicacion,duracion):
         self.__id=id
         self.__nombre=nombre
         self.__anio_publicacion=anio_publicacion
         self.__duracion=duracion
-    
+        
     def MOSTRAR_NFORMACION_CANCION(self):
-        respuesta= 'Nombre: ' , self.GET_NOMBRE(),  'artistas: ', self.GET_ARTISTAS() ,'generos: ', self.GET_GENEROS() ,'duracion: ', self.GET_DURACION(), 'anio publicacion: ', self.GET_ANIO_PUBLICACION() 
+        respuesta= 'Nombre: ' , self.name,  'artistas: ', self.artistas ,'generos: ', self.generos ,'duracion: ', self.duration, 'anio publicacion: ', self.publishDate
         return respuesta
     
     @property
@@ -33,5 +34,13 @@ class Song:
     @duration.setter
     def duration(self,nDuracion):
         self.__duracion=nDuracion
+        
+    def artistas(self):
+        for artista in self.__ListaArtistasCancion:
+            return artista
+        
+    def generos(self):
+        for genero in self.__ListaGenerosCancion:
+            return genero
 
         

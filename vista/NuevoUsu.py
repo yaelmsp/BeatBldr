@@ -1,6 +1,6 @@
 
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox,QComboBox,QDialog)
+    QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox,QComboBox,QDialog)
 from PySide6.QtCore import Qt,Slot,Signal
 from controlador.controladorUsers import controladorUsers
 from controlador.controladorCountrys import controladorCountrys

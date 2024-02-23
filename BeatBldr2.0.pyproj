@@ -22,7 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BeatBldr2.0.py" />
+    <Compile Include="controlador\controladorPlaylist.py" />
     <Compile Include="controlador\controladorCountrys.py" />
+    <Compile Include="controlador\controladorSongs.py" />
     <Compile Include="controlador\controladorUsers.py" />
     <Compile Include="controlador\gestores\Artists.py" />
     <Compile Include="controlador\controladorArtist.py" />

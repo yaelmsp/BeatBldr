@@ -12,14 +12,15 @@ from vista.PantallaEleccion import Eleccion
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.titulo=QLabel("LOG IN")
-        self.titulo.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        self.setWindowTitle("Log In")
+        # self.titulo=QLabel("LOG IN")
+        # self.titulo.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         self.controlador_usuario=controladorUsers()
        
         
         self.formulario()
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(self.titulo)
+        # self.layout = QVBoxLayout(self)
+        # self.layout.addWidget(self.titulo)
              
     def formulario(self):
         formulario = QFormLayout()
@@ -51,6 +52,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
         
     def devolverNyC(self):
+        self.hide()
         nombre=str(self.huecoUsu.text())
         contra=str(self.huecoPss.text())
         rest=self.controlador_usuario.login(nombre,contra)
@@ -61,6 +63,7 @@ class MainWindow(QMainWindow):
             self.mostrarSubVentana()
         elif rest==3:
             self.mostrarRegistro()
+            
             
     def mostrarApplicacion(self):
         self.aplicacion = Eleccion()

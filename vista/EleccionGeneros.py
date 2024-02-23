@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import (
-    QApplication, QComboBox,QInputDialog,QWidget,QFormLayout,QDialog,QVBoxLayout,QDialogButtonBox)
+    QApplication, QComboBox,QWidget,QDialog,QVBoxLayout,QDialogButtonBox)
 import sys
 from controlador.controladorGenres import controladorGenres
-from vista.App import MainApp
+from vista.app import MainApp
 
 
 
@@ -15,8 +15,8 @@ class Generos(QWidget):
         self.ListaGeneros=[]
         self.ConversionArray()
         self.formulario()
-        self.layout = QVBoxLayout()
-        self.setLayout(self.layout)
+        # self.layout = QVBoxLayout()
+        # self.setLayout(self.layout)
         
     def ConversionArray(self):
          gen=self.controlador_generos.mostrar_generos()
@@ -29,8 +29,9 @@ class Generos(QWidget):
         rest=dialogo.exec()
         if rest:
             lista = dialogo.enviarParam()
-            listaLimpia = self.ListaGeneros=set(lista[-self.oyentes:])
-            self.mostrarApp(listaLimpia)
+            listaLimpia = self.ListaGeneros
+            lista2=set(listaLimpia[-self.oyentes:])
+            self.mostrarApp(lista2)
         else:
             print('ERROR')
             
@@ -45,13 +46,18 @@ class Dialogo(QDialog):
         super().__init__(None)
         self.setWindowTitle("Elige Genero Musical")
         self.lista=[]
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+        self.oyentes=noyentes
+        self.listaGeneros=listaGeneros
+        self.layout = QVBoxLayout()
+        self.setLayout(self.layout)
+        self.EleccionGeneros()
+        
+    def EleccionGeneros(self):
         terminar = 0
-        while terminar < noyentes:
+        while terminar < self.oyentes:
             despleglabe=QComboBox()
-            despleglabe.addItems(listaGeneros)
-            layout.addWidget(despleglabe)
+            despleglabe.addItems(self.listaGeneros)
+            self.layout.addWidget(despleglabe)
             despleglabe.setCurrentIndex(-1)
             despleglabe.currentTextChanged.connect(self.texto_cambiado)
             terminar=terminar+1
@@ -64,7 +70,7 @@ class Dialogo(QDialog):
         botones.button(QDialogButtonBox.Ok).setText("Aceptar")
         botones.button(QDialogButtonBox.Cancel).setText("Cancelar")
 
-        layout.addWidget(botones)      
+        self.layout.addWidget(botones)      
             
     def texto_cambiado(self, texto):
         self.lista.append(texto)

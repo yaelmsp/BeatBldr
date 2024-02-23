@@ -1,8 +1,12 @@
 from controlador.instancias.Song import Song
 
 class Songs:
-        def __init__(self,songs):
+        def __init__(self,songs,artistas,generos):
             self.__listaCanciones=songs
+            self.__listaCancionArtista=artistas
+            self.__listaCancionGeneros=generos
+            
+            
         
         def AGREGAR_CANCION(self,nombre,anio,duracion):
             idc=self.CREAR_ID()
@@ -50,7 +54,13 @@ class Songs:
                 ultimoId = self.__listaCanciones[-1].id +1
             return ultimoId
                
-
+        def COGER_GENEROS(self,idCancion):
+            count=0
+            for Cancion in self.__listaCancionArtista:
+                lista=list[Cancion]
+                if idCancion in lista[][1]:
+                    print(Cancion)
+            
    
 
             
