@@ -40,10 +40,10 @@ ListaPaises=[Country(1,'Espania'),Country(2,'Francia'),Country(3,'Portugal'),Cou
     # return ListaPaises
 
 global ListaGenerosCanciones
-ListaGenerosCanciones=[(1,1,3),(2,1,2),(3,2,2),(4,3,1),(5,4,3),(5,4,1)]
+ListaGenerosCanciones=[(1,1,3),(2,1,2),(3,2,2),(4,3,1),(5,4,3),(6,5,4)]
 
 global ListaArtstasCanciones
-ListaArtstasCanciones=[(1,1,1)]
+ListaArtstasCanciones=[(1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5)]
 
 global ListaCancionesPlaylist
 ListaCancionesPlaylist=[(1,1,1)]

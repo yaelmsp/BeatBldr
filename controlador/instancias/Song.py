@@ -1,4 +1,7 @@
 # from clases.Genre import Genre
+from controlador.instancias.Genre import Genre
+from controlador.instancias.Artist import Artist
+
 
 class Song:
     def __init__(self,id,nombre,anio_publicacion,duracion):
@@ -7,9 +10,14 @@ class Song:
         self.__anio_publicacion=anio_publicacion
         self.__duracion=duracion
         
+        
     def MOSTRAR_NFORMACION_CANCION(self):
-        respuesta= 'Nombre: ' , self.name,  'artistas: ', self.artistas ,'generos: ', self.generos ,'duracion: ', self.duration, 'anio publicacion: ', self.publishDate
+        respuesta= 'Nombre: ' , self.name,'duracion: ', self.duration, 'anio publicacion: ', self.publishDate
         return respuesta
+    
+    @property
+    def id(self):
+        return self.__id
     
     @property
     def name(self):
@@ -35,12 +43,12 @@ class Song:
     def duration(self,nDuracion):
         self.__duracion=nDuracion
         
-    def artistas(self):
-        for artista in self.__ListaArtistasCancion:
+    def artistas(self,artistas):
+        for artista in artistas:
             return artista
         
-    def generos(self):
-        for genero in self.__ListaGenerosCancion:
+    def generos(self,generos):
+        for genero in generos:
             return genero
 
         

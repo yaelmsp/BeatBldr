@@ -9,11 +9,9 @@ class controladorSongs:
         self.generosCancion=ListaGenerosCanciones
         self.artistasCancion=ListaArtstasCanciones
         self.gestor_Canciones= Songs(self.canciones,self.generosCancion,self.artistasCancion)
-        
-        
+           
     def mostrarDatosCancion(self):
-        cancion=self.gestor_Canciones.COGER_GENEROS(1)
-        print(cancion)
+        self.gestor_Canciones.MOSTRAR_LISTA_CANCIONES()
         
     
 

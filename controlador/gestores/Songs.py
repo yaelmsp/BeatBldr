@@ -1,13 +1,13 @@
 from controlador.instancias.Song import Song
+from modelo.mock import ListaGeneros
 
 class Songs:
-        def __init__(self,songs,artistas,generos):
+        def __init__(self,songs,generos,artistas):
             self.__listaCanciones=songs
-            self.__listaCancionArtista=artistas
             self.__listaCancionGeneros=generos
+            self.__listaCancionArtista=artistas
             
-            
-        
+           
         def AGREGAR_CANCION(self,nombre,anio,duracion):
             idc=self.CREAR_ID()
             nuevaCancion=Song(idc,nombre,anio,duracion)
@@ -31,11 +31,14 @@ class Songs:
                    print('No existe esa cancion')
                else:
                 print(self.__listaCanciones[posicion].MOSTRAR_NFORMACION_CANCION())
-
+       
         def MOSTRAR_LISTA_CANCIONES(self):
             # return 
             for canciones in self.__listaCanciones:
-                print(canciones.MOSTRAR_NFORMACION_CANCION())
+                idCancion=canciones.id
+                genero=self.COGER_GENEROS(idCancion)
+                artistas=self.COGER_ARTISTAS(idCancion)
+                print("cancion: ",idCancion, "Generos: ", genero,"Artista: ",artistas)
             
         def BUSCAR_POSICION_CANCION(self,cancion):
             count=0
@@ -55,12 +58,21 @@ class Songs:
             return ultimoId
                
         def COGER_GENEROS(self,idCancion):
-            count=0
-            for Cancion in self.__listaCancionArtista:
-                lista=list[Cancion]
-                if idCancion in lista[][1]:
-                    print(Cancion)
+            lista_generos=[]
+            for genero in self.__listaCancionGeneros:
+                if genero[1] == idCancion:
+                    idGenero=genero[2]
+                    lista_generos.append(idGenero)
+            return lista_generos
             
+                
+        def COGER_ARTISTAS(self,idCancion):
+            lista_artistas=[]
+            for artista in self.__listaCancionArtista:
+                if artista[1] == idCancion:
+                   idArtistas=artista[2]
+                   lista_artistas.append(idArtistas)
+            return lista_artistas
    
 
             
