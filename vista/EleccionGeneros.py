@@ -3,6 +3,9 @@ from PySide6.QtWidgets import (
 import sys
 from controlador.controladorGenres import controladorGenres
 from vista.app import MainApp
+from controlador.controladorPlaylist import ControladorPlaylist
+from controlador.controladorUsers import controladorUsers
+
 
 
 
@@ -12,6 +15,8 @@ class Generos(QWidget):
         self.setWindowTitle("Elegir generos")
         self.oyentes = int(oyentesElec)
         self.controlador_generos=controladorGenres()
+        self.controlador_playlist=ControladorPlaylist()
+        self.controlador_usuarios=controladorUsers()
         self.ListaGeneros=[]
         self.ConversionArray()
         self.formulario()
@@ -36,8 +41,10 @@ class Generos(QWidget):
             print('ERROR')
             
     def mostrarApp(self,generos):
-        self.subventana = MainApp(generos)
-        self.subventana.show()  
+        # self.subventana = MainApp(generos)
+        # self.subventana.show()  
+        self.controlador_playlist.crear_playlist()
+        self.controlador_usuarios.mostrarIdUsuario()
         
        
 #Clase dialogo Eleccion

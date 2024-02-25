@@ -5,8 +5,15 @@ class ControladorPlaylist:
         def __init__(self):  
             self.playlist = ListaPlaylists
             self.gestor_Playlist = Playlists(self.playlist)
+            
+        def crear_playlist(self):
+            self.gestor_Playlist.AGREGAR_PLAYLIST()  
+            self.gestor_Playlist.MOSTRAR_PLAYLIST(1)
 
 
+
+# playlist=ControladorPlaylist()
+# playlist.crear_playlist()
 
 
 

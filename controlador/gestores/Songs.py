@@ -33,12 +33,11 @@ class Songs:
                 print(self.__listaCanciones[posicion].MOSTRAR_NFORMACION_CANCION())
        
         def MOSTRAR_LISTA_CANCIONES(self):
-            # return 
             for canciones in self.__listaCanciones:
                 idCancion=canciones.id
                 genero=self.COGER_GENEROS(idCancion)
                 artistas=self.COGER_ARTISTAS(idCancion)
-                print("cancion: ",idCancion, "Generos: ", genero,"Artista: ",artistas)
+                print("cancion: ",canciones.name, "Generos: ", genero ,"Artista: ",artistas)
             
         def BUSCAR_POSICION_CANCION(self,cancion):
             count=0

@@ -43,12 +43,12 @@ class Song:
     def duration(self,nDuracion):
         self.__duracion=nDuracion
         
-    def artistas(self,artistas):
-        for artista in artistas:
-            return artista
+    # def artistas(self,artistas):
+    #     for artista in artistas:
+    #         return artista
         
-    def generos(self,generos):
-        for genero in generos:
-            return genero
+    # def generos(self,generos):
+    #     for genero in generos:
+    #         return genero
 
         
