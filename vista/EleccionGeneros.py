@@ -34,18 +34,16 @@ class Generos(QWidget):
         rest=dialogo.exec()
         if rest:
             lista = dialogo.enviarParam()
-            listaLimpia = self.ListaGeneros
-            lista2=set(listaLimpia[-self.oyentes:])
+            # listaLimpia = self.lista
+            lista2=set(lista[-self.oyentes:])
             self.mostrarApp(lista2)
         else:
             print('ERROR')
             
     def mostrarApp(self,generos):
-        # self.subventana = MainApp(generos)
-        # self.subventana.show()  
-        self.controlador_playlist.crear_playlist()
-        self.controlador_usuarios.mostrarIdUsuario()
-        
+        self.subventana = MainApp(generos)
+        self.subventana.show()  
+
        
 #Clase dialogo Eleccion
 class Dialogo(QDialog):

@@ -48,5 +48,8 @@ class Genres:
             count+=1  
         return gen
 
-
+    def BUSCAR_ID_GENERO(self,nombre):
+        posicion=self.BUSCAR_POSICION_GENERO(nombre)
+        idGenero=self.__listaGeneros[posicion].id
+        return idGenero
 
