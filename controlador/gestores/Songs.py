@@ -86,7 +86,6 @@ class Songs:
                 for genero in cancion.genre:
                     if genero in IdGeneros:
                         listCancionesEncontradas.append(cancion.name)
-            print(listCancionesEncontradas)
             return listCancionesEncontradas
                         
             
