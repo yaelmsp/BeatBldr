@@ -34,11 +34,18 @@ class Songs:
        
         def MOSTRAR_LISTA_CANCIONES(self):
             for canciones in self.__listaCanciones:
-                idCancion=canciones.id
+                canciones.MOSTRAR_NFORMACION_CANCION()
+                
+        def ADJUNTAS_ARTISTAS_GENEROS(self):
+            for cancion in self.__listaCanciones:
+                idCancion=cancion.id
                 genero=self.COGER_GENEROS(idCancion)
                 artistas=self.COGER_ARTISTAS(idCancion)
-                print("cancion: ",canciones.name, "Generos: ", genero ,"Artista: ",artistas)
-            
+                cancion.genre=genero
+                cancion.artist=artistas
+
+                
+                   
         def BUSCAR_POSICION_CANCION(self,cancion):
             count=0
             found=False 
@@ -73,7 +80,16 @@ class Songs:
                    lista_artistas.append(idArtistas)
             return lista_artistas
    
-
+        def BUSCAR_CANCIONES_GENERO(self,IdGeneros):
+            listCancionesEncontradas=[]
+            for cancion in self.__listaCanciones:
+                for genero in cancion.genre:
+                    if genero in IdGeneros:
+                        listCancionesEncontradas.append(cancion.MOSTRAR_NFORMACION_CANCION())
+                        
+            return listCancionesEncontradas
+                        
+            
             
           
 

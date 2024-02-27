@@ -8,5 +8,8 @@ class controladorGenres:
         
     def mostrar_generos(self):
         return self.gestor_usuarios.MOSTRAR_LISTA()
-
+    
+    def buscarIdGenero(self,nombreGenero):
+        ids=self.gestor_usuarios.BUSCAR_ID_GENERO(nombreGenero)
+        return ids
 

@@ -1,8 +1,9 @@
+from re import S
 from controlador.gestores.Songs import Songs
 from modelo.mock import ListaSongs
 from modelo.mock import ListaGenerosCanciones
 from modelo.mock import ListaArtstasCanciones
-from controlador.gestores.Genres import Genres
+from controlador.controladorGenres import controladorGenres
 
 class controladorSongs:
     def __init__(self):
@@ -10,16 +11,21 @@ class controladorSongs:
         self.generosCancion=ListaGenerosCanciones
         self.artistasCancion=ListaArtstasCanciones
         self.gestor_Canciones= Songs(self.canciones,self.generosCancion,self.artistasCancion)
-        self.controlador_generos=Genres()
+        self.controlador_generos=controladorGenres()
+        # self.SetearGenerosYartistas()
            
     def mostrarDatosCancion(self):
         self.gestor_Canciones.MOSTRAR_LISTA_CANCIONES()
         
     def mostrarGenerosElegidos(self,generos):
-        #Hacer for para recorrer tupla y conseguir el id, que habra que guarda a una lista 
-        self.controlador_generos.BUSCAR_ID_GENERO()
-        print("Generos Controlador: ", generos)
-    
+       self.gestor_Canciones.ADJUNTAS_ARTISTAS_GENEROS()
+       idGeneros= self.controlador_generos.buscarIdGenero(generos)
+       canciones=self.buscarCancionesGeneros(idGeneros)
+       return canciones
+       
+    def buscarCancionesGeneros(self,idGeneros):
+      canciones= self.gestor_Canciones.BUSCAR_CANCIONES_GENERO(idGeneros)
+      return canciones    
 
-cancion=controladorSongs()
-cancion.mostrarDatosCancion()
+# cancion=controladorSongs()
+# cancion.mostrarDatosCancion()

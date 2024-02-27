@@ -13,5 +13,6 @@ class MainApp(QWidget):
         self.devolverGeneros()
 
     def devolverGeneros(self):
-      self.controlador_canciones.mostrarGenerosElegidos(self.generos)
+      canciones = self.controlador_canciones.mostrarGenerosElegidos(self.generos)
+      print("Vista:", canciones)
        

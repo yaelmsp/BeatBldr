@@ -9,11 +9,13 @@ class Song:
         self.__nombre=nombre
         self.__anio_publicacion=anio_publicacion
         self.__duracion=duracion
-        
+        self.__listaGenerosCancion=[]
+        self.__listaArtistasCancion=[]
         
     def MOSTRAR_NFORMACION_CANCION(self):
         respuesta= 'Nombre: ' , self.name,'duracion: ', self.duration, 'anio publicacion: ', self.publishDate
         return respuesta
+    
     
     @property
     def id(self):
@@ -43,12 +45,28 @@ class Song:
     def duration(self,nDuracion):
         self.__duracion=nDuracion
         
-    # def artistas(self,artistas):
-    #     for artista in artistas:
-    #         return artista
+    @property
+    def artist(self):
+        artistas=[]
+        for artista in self.__listaArtistasCancion:
+            artistas.append(artista) 
+        return artistas
         
-    # def generos(self,generos):
-    #     for genero in generos:
-    #         return genero
+    @artist.setter   
+    def artist(self,artistas):
+        for artista in artistas:
+            self.__listaArtistasCancion.append(artista)
+            
+    @property
+    def genre(self):
+        generos=[]
+        for genero in self.__listaGenerosCancion:
+            generos.append( genero)
+        return generos
+        
+    @genre.setter   
+    def genre(self,generos):
+        for genero in generos:
+          self.__listaGenerosCancion.append(genero)
 
         

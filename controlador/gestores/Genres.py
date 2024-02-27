@@ -42,14 +42,17 @@ class Genres:
         found=False 
         gen=-1
         while count<len(self.__listaGeneros) and found == False:
-            if self.__listaGeneros[count].name== genero:
+            if self.__listaGeneros[count].name==genero:
                  gen = self.__listaGeneros.index(self.__listaGeneros[count]) 
                  found = True
             count+=1  
         return gen
 
     def BUSCAR_ID_GENERO(self,nombre):
-        posicion=self.BUSCAR_POSICION_GENERO(nombre)
-        idGenero=self.__listaGeneros[posicion].id
-        return idGenero
+        ListaIds=[]
+        for generosName in nombre:
+            posicion=self.BUSCAR_POSICION_GENERO(generosName)
+            idGenero=self.__listaGeneros[posicion].id
+            ListaIds.append(idGenero)
+        return ListaIds
 
