@@ -85,7 +85,8 @@ class Songs:
             for cancion in self.__listaCanciones:
                 for genero in cancion.genre:
                     if genero in IdGeneros:
-                        listCancionesEncontradas.append(cancion.name)
+                        datos=(cancion.name,cancion.artist)
+                        listCancionesEncontradas.append(datos)
             return listCancionesEncontradas
                         
             

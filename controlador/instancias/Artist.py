@@ -4,6 +4,10 @@ class Artist:
         self.__nombre=nombre
         
     @property
+    def id(self):
+        return self.__id
+        
+    @property
     def name(self):
         return self.__nombre
     

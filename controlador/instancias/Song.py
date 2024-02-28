@@ -13,7 +13,8 @@ class Song:
         self.__listaArtistasCancion=[]
         
     def MOSTRAR_NFORMACION_CANCION(self):
-        respuesta= 'Nombre: ' , self.name,'duracion: ', self.duration, 'anio publicacion: ', self.publishDate
+        # respuesta= 'Nombre: ' , self.name,'duracion: ', self.duration, 'anio publicacion: ', self.publishDate
+        respuesta=self.name, "-", self.artist
         return respuesta
     
     

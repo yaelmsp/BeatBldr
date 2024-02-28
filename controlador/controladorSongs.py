@@ -4,6 +4,8 @@ from modelo.mock import ListaSongs
 from modelo.mock import ListaGenerosCanciones
 from modelo.mock import ListaArtstasCanciones
 from controlador.controladorGenres import controladorGenres
+from controlador.controladorArtist import controladorArtistas
+
 
 class controladorSongs:
     def __init__(self):
@@ -12,6 +14,8 @@ class controladorSongs:
         self.artistasCancion=ListaArtstasCanciones
         self.gestor_Canciones= Songs(self.canciones,self.generosCancion,self.artistasCancion)
         self.controlador_generos=controladorGenres()
+        self.controlador_artista=controladorArtistas()
+        
         # self.SetearGenerosYartistas()
            
     def mostrarDatosCancion(self):
@@ -22,10 +26,17 @@ class controladorSongs:
        idGeneros= self.controlador_generos.buscarIdGenero(generos)
        canciones=self.buscarCancionesGeneros(idGeneros)
        return canciones
+    
+    def mostrarArtistaCancion(self,idArtista):
+      for artista in idArtista:
+        self.controlador_artista.mostrarNombresArtistas(artista)
        
     def buscarCancionesGeneros(self,idGeneros):
       canciones= self.gestor_Canciones.BUSCAR_CANCIONES_GENERO(idGeneros)
-      return canciones    
+      for cancion in canciones:
+           rest=self.mostrarArtistaCancion(cancion[1])
+           print('rest:', rest)
+      # return canciones[0]    
 
 # cancion=controladorSongs()
 # cancion.mostrarDatosCancion()

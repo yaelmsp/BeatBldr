@@ -48,4 +48,10 @@ class Artists:
             count+=1  
         return art
 
+    def BUSCAR_ARTISTA(self,idArtista):
+        listaNombreArtistas=[]
+        for artista in self.__listaArtistas:
+            if idArtista == artista.id:
+                listaNombreArtistas.append(artista.name)
+        return listaNombreArtistas
 
