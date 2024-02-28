@@ -11,6 +11,5 @@ class controladorArtistas:
         print(self.gestor_usuarios.MOSTRAR_LISTA())    
         
     def mostrarNombresArtistas(self,idArtista):
-        print('IDaRTISTA:',idArtista)
         return self.gestor_usuarios.BUSCAR_ARTISTA(idArtista)
         

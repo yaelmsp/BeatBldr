@@ -20,7 +20,6 @@ class MainApp(QWidget):
         self.mainWidget=QVBoxLayout()
         self.controlador_canciones=controladorSongs()
         self.generos=generos
-        # self.devolverGeneros()
         self.CancionesSelect=self.devolverGeneros()
         self.Pantalla()
         self.playerMenu()
@@ -30,19 +29,18 @@ class MainApp(QWidget):
        BoxLayout=QVBoxLayout()
        widget = QWidget()
        widget.setLayout(BoxLayout)
-
+       print('Canciones',self.CancionesSelect)
        while count < len(self.CancionesSelect):
            boton=QPushButton(self.CancionesSelect[count], self)
            boton.setStyleSheet("""
                                 QPushButton {
                                     background-color: transparent; 
-                                    font-size:35px
+                                    font-size:20px
                                 }
                                 QPushButton:hover {
                                     color: purple;
                                 }""");
            BoxLayout.addWidget(boton)
-           boton.clicked.connect(self.comprobar)
            count+=1
         
        scrollArea = QScrollArea()
@@ -64,7 +62,7 @@ class MainApp(QWidget):
        self.playbutton.setStyleSheet("""
                                 QPushButton:hover {
                                     background-color: #DEC9E9;
-                                    border:1px solid purple; 
+                                    border:1px solid purple;
                                 }""");
        # self.playbutton.clicked.connect(self.play_pause)
        
@@ -76,6 +74,7 @@ class MainApp(QWidget):
                                 QPushButton:hover {
                                     background-color: #DEC9E9;
                                     border:1px solid purple; 
+      
                                 }""");
        
        PauseIcon=QtGui.QPixmap("./assets/pause.png")
@@ -114,8 +113,6 @@ class MainApp(QWidget):
        
        self.setLayout(self.mainWidget)
        
-    def comprobar(self):
-       print('boton clicado')
 
     def devolverGeneros(self):
       canciones = self.controlador_canciones.mostrarGenerosElegidos(self.generos)

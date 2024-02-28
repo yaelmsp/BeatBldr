@@ -16,7 +16,6 @@ class controladorSongs:
         self.controlador_generos=controladorGenres()
         self.controlador_artista=controladorArtistas()
         
-        # self.SetearGenerosYartistas()
            
     def mostrarDatosCancion(self):
         self.gestor_Canciones.MOSTRAR_LISTA_CANCIONES()
@@ -29,14 +28,20 @@ class controladorSongs:
     
     def mostrarArtistaCancion(self,idArtista):
       for artista in idArtista:
-        self.controlador_artista.mostrarNombresArtistas(artista)
+            return self.controlador_artista.mostrarNombresArtistas(artista)
        
     def buscarCancionesGeneros(self,idGeneros):
-      canciones= self.gestor_Canciones.BUSCAR_CANCIONES_GENERO(idGeneros)
+      count=0
+      listaReproduccion=[]
+      canciones= self.gestor_Canciones.BUSCAR_CANCIONES_GENERO(idGeneros) 
       for cancion in canciones:
-           rest=self.mostrarArtistaCancion(cancion[1])
-           print('rest:', rest)
-      # return canciones[0]    
+          cancionPlay = canciones[count][0]
+          rest=self.mostrarArtistaCancion(cancion[1])[0] 
+          frase= '{} - {}'.format(cancionPlay, rest)
+          count=count+1
+          
+          listaReproduccion.append(frase)
+      return listaReproduccion
 
 # cancion=controladorSongs()
 # cancion.mostrarDatosCancion()

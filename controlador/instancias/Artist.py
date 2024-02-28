@@ -1,6 +1,6 @@
 class Artist:
     def __init__(self,id,nombre):
-        self.__id=id,
+        self.__id=id
         self.__nombre=nombre
         
     @property
