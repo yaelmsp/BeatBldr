@@ -38,21 +38,22 @@ class Users:
                       
     def LOG_IN(self,usuarioname,contraCom):
         count = 0
-        fin=False
-        respuesta=0
-        
-        while count <= len(self.__listaUsuario) and fin == False:
-            if self.__listaUsuario[count].userName == usuarioname and self.__listaUsuario[count].password == contraCom:
-                fin=True
-                respuesta = 1
-            elif self.__listaUsuario[count].userName == usuarioname and self.__listaUsuario[count].password != contraCom:
-                print(self.__listaUsuario[count].password)
-                fin=True
-                respuesta= 2
-            elif self.__listaUsuario[count].userName != usuarioname and self.__listaUsuario[count].password != contraCom:
-               fin=True
-               respuesta = 3
-            count+=1
+        fin = False
+        respuesta = 0
+
+        while count < len(self.__listaUsuario) and not fin:
+            if self.__listaUsuario[count].userName == usuarioname:
+                if self.__listaUsuario[count].password == contraCom:
+                    fin = True
+                    respuesta = 1  
+                else:
+                    fin = True
+                    respuesta = 2  
+            count += 1
+
+        if respuesta == 0:
+            respuesta = 3 
+
         return respuesta
    
     def MOSTRAR_LISTA(self):

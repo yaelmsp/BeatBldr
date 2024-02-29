@@ -4,12 +4,27 @@ from controlador.instancias.Genre import Genre
 from controlador.instancias.Song import Song
 from controlador.instancias.Playlist import Playlist
 from controlador.instancias.Country import Country
+import pyodbc
 
+global ListaUsuario
 
+conn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=INKAULA110;'
+                      'Database=BeatBldr;'
+                      'Trusted_Connection=yes;')
+
+ListaUsuario=[]
+cursor = conn.cursor()
+sql='Select u.id,u.Nombre,u.Apellido,u.Usuario,c.id as pais, p.Contrasenia FROM Users as u, Passwords as p, Countrys as c WHERE u.id=p.id_Usuario and u.Pais=c.id'
+cursor.execute(sql)
+for row in cursor:
+    nuevousu=User(row.id,row.Nombre,row.Apellido,row.Usuario,row.Contrasenia,row.pais)
+    ListaUsuario.append(nuevousu)
+cursor.close
         
 # def CARGAR_LISTA_USUARIOS():
-global ListaUsuario
-ListaUsuario=[User(1,'yael','martinez','yaelmsp','1234',1),User(2,'jose','p','joseluuu','1234',4)]
+# global ListaUsuario
+# ListaUsuario=[User(1,'yael','martinez','yaelmsp','1234',1),User(2,'jose','p','joseluuu','1234',4)]
     # return ListaUsuario
 
 # def CARGAR_LISTA_GENEROS():

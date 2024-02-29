@@ -63,7 +63,7 @@ class User:
         return anio_actual - self.anio_nacimiento
     
     def GET_USER(self):
-       usuario = 'Nombre:', self.__nombre, 'Apellido:', self.__apellido ,'Usuario:', self.__nombre_usuario, 'Pais:', self.__pais
+       usuario = 'Nombre:', self.__nombre, 'Apellido:', self.__apellido ,'Usuario:', self.__nombre_usuario, 'Pais:', self.__pais,'contra',self.__contrasenia
        # print(usuario)
        return usuario
     

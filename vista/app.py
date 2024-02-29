@@ -21,6 +21,7 @@ class MainApp(QWidget):
         self.controlador_canciones=controladorSongs()
         self.generos=generos
         self.CancionesSelect=self.devolverGeneros()
+        self.ListaCancionesLimpia=list(set(self.CancionesSelect))
         self.Pantalla()
         self.playerMenu()
         
@@ -29,13 +30,14 @@ class MainApp(QWidget):
        BoxLayout=QVBoxLayout()
        widget = QWidget()
        widget.setLayout(BoxLayout)
-       print('Canciones',self.CancionesSelect)
-       while count < len(self.CancionesSelect):
-           boton=QPushButton(self.CancionesSelect[count], self)
+ 
+       while count < len(self.ListaCancionesLimpia):
+           boton=QPushButton(self.ListaCancionesLimpia[count], self)
            boton.setStyleSheet("""
                                 QPushButton {
                                     background-color: transparent; 
                                     font-size:20px
+                                    
                                 }
                                 QPushButton:hover {
                                     color: purple;
@@ -46,6 +48,7 @@ class MainApp(QWidget):
        scrollArea = QScrollArea()
        scrollArea.setBackgroundRole(QPalette.Dark)
        scrollArea.setWidget(widget)
+       scrollArea.setAlignment(Qt.AlignCenter)  
     
        self.mainWidget.addWidget(scrollArea)
 
