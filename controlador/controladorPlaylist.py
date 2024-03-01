@@ -10,10 +10,3 @@ class ControladorPlaylist:
             self.gestor_Playlist.AGREGAR_PLAYLIST()  
             self.gestor_Playlist.MOSTRAR_PLAYLIST(1)
 
-
-
-# playlist=ControladorPlaylist()
-# playlist.crear_playlist()
-
-
-

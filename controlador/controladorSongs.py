@@ -42,6 +42,3 @@ class controladorSongs:
           
           listaReproduccion.append(frase)
       return listaReproduccion
-
-# cancion=controladorSongs()
-# cancion.mostrarDatosCancion()

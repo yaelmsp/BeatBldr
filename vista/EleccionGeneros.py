@@ -20,8 +20,7 @@ class Generos(QWidget):
         self.ListaGeneros=[]
         self.ConversionArray()
         self.formulario()
-        # self.layout = QVBoxLayout()
-        # self.setLayout(self.layout)
+
         
     def ConversionArray(self):
          gen=self.controlador_generos.mostrar_generos()
@@ -34,7 +33,6 @@ class Generos(QWidget):
         rest=dialogo.exec()
         if rest:
             lista = dialogo.enviarParam()
-            # listaLimpia = self.lista
             lista2=set(lista[-self.oyentes:])
             self.mostrarApp(lista2)
         else:
@@ -58,14 +56,14 @@ class Dialogo(QDialog):
         self.EleccionGeneros()
         
     def EleccionGeneros(self):
-        terminar = 0
-        while terminar < self.oyentes:
+        count = 0
+        while count < self.oyentes:
             despleglabe=QComboBox()
             despleglabe.addItems(self.listaGeneros)
             self.layout.addWidget(despleglabe)
             despleglabe.setCurrentIndex(-1)
             despleglabe.currentTextChanged.connect(self.texto_cambiado)
-            terminar=terminar+1
+            count+=1
             
         botones = QDialogButtonBox(
             QDialogButtonBox.Ok | QDialogButtonBox.Cancel)

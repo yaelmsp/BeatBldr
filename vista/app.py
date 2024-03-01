@@ -5,11 +5,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from controlador.controladorSongs import controladorSongs
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import (
-                                QStyle, QToolBar)
-from PySide6.QtMultimedia import (QAudioOutput,
-                                  QMediaPlayer)
+
 
 
 class MainApp(QWidget):
@@ -25,40 +21,69 @@ class MainApp(QWidget):
         self.Pantalla()
         self.playerMenu()
         
+        logout=QtGui.QPixmap("./assets/log_out.png")
+        self.logoutbutton = QPushButton()
+        self.logoutbutton.setIcon(QtGui.QIcon(logout))
+       
+        self.mainWidget.addWidget(self.logoutbutton)
+       
+        self.logoutbutton.setStyleSheet("""
+                                QPushButton:hover {
+                                    background-color: #DEC9E9;
+                                    border:1px solid purple;
+                                   border-radius: 20px;
+                                   border-style: outset;
+                                }""");
+       
+        self.logoutbutton.clicked.connect(self.Log_Out)
+        
+        
     def Pantalla(self):
-       count=0
        BoxLayout=QVBoxLayout()
        widget = QWidget()
        widget.setLayout(BoxLayout)
- 
-       while count < len(self.ListaCancionesLimpia):
-           boton=QPushButton(self.ListaCancionesLimpia[count], self)
-           boton.setStyleSheet("""
-                                QPushButton {
-                                    background-color: transparent; 
-                                    font-size:20px
+       if len(self.ListaCancionesLimpia) != 0:
+           count=0
+           while count < len(self.ListaCancionesLimpia):
+               boton=QPushButton(self.ListaCancionesLimpia[count], self)
+               boton.setStyleSheet("""
+                                    QPushButton {
+                                        background-color: transparent; 
+                                        font-size:20px
                                     
-                                }
-                                QPushButton:hover {
-                                    color: purple;
-                                }""");
-           BoxLayout.addWidget(boton)
-           count+=1
-        
-       scrollArea = QScrollArea()
-       scrollArea.setBackgroundRole(QPalette.Dark)
-       scrollArea.setWidget(widget)
-       scrollArea.setAlignment(Qt.AlignCenter)  
+                                    }
+                                    QPushButton:hover {
+                                        color: purple;
+                                    }""");
+               BoxLayout.addWidget(boton)
+               count+=1
+           scrollArea = QScrollArea()
+           scrollArea.setBackgroundRole(QPalette.Dark)
+           scrollArea.setWidget(widget)
+           scrollArea.setAlignment(Qt.AlignCenter)  
     
-       self.mainWidget.addWidget(scrollArea)
-
-       
-       self.setLayout(self.mainWidget)
+           self.mainWidget.addWidget(scrollArea)
+           self.setLayout(self.mainWidget)
+           
+       else:
+            label = QLabel()
+            label.setText("No hay ninguna cancion de ese genero")
+            label.setStyleSheet("QLabel { color : purple; font-size:20px }");
+            BoxLayout.addWidget(label)
+        
+            scrollArea = QScrollArea()
+            scrollArea.setBackgroundRole(QPalette.Dark)
+            scrollArea.setWidget(widget)
+            scrollArea.setAlignment(Qt.AlignCenter)  
+    
+            self.mainWidget.addWidget(scrollArea)
+            self.setLayout(self.mainWidget)
           
     def playerMenu(self):
        
        BoxHLayout=QHBoxLayout()
-       playIcon=QtGui.QPixmap("./assets/start.png")
+       
+       playIcon=QtGui.QPixmap("./assets/play.png")
        self.playbutton = QPushButton()
        self.playbutton.setIcon(QtGui.QIcon(playIcon))
        BoxHLayout.addWidget(self.playbutton)
@@ -119,8 +144,15 @@ class MainApp(QWidget):
 
     def devolverGeneros(self):
       canciones = self.controlador_canciones.mostrarGenerosElegidos(self.generos)
-      # print(canciones)
       return canciones
+  
+    def Log_Out(self):
+        dialogo = QMessageBox.question(
+            self, "Log out", "Te gustaria salir de la aplicacion")
+
+        # ahora debemos comprobar qué tipo de botón se devuelve
+        if dialogo == QMessageBox.Yes:
+            self.close()
            
 
        

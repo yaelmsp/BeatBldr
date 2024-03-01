@@ -7,8 +7,8 @@ class Countrys:
         for paises in self.__listaPaises:
             lista.append(paises.name)
         return lista
+    
 
-                
     def BUSCAR_POSICION_PAIS(self,pais):
         count=0
         found=False 

@@ -14,7 +14,6 @@ class Songs:
             self.__listaCanciones.append(nuevaCancion)
     
         def ELIMINAR_CANCION_BY_NAME(self,cancionEliminar):
-            # return
             posicion = self.BUSCAR_POSICION_CANCION(cancionEliminar)
             if posicion == -1:
                 print('No existe esa cancion')
@@ -25,7 +24,6 @@ class Songs:
 
     
         def BUSCAR_CANCION_BY_NAME(self,cancionBusqueda):   
-            # return
                posicion = self.BUSCAR_POSICION_CANCION(cancionBusqueda)
                if posicion == -1:
                    print('No existe esa cancion')
@@ -43,9 +41,7 @@ class Songs:
                 artistas=self.COGER_ARTISTAS(idCancion)
                 cancion.genre=genero
                 cancion.artist=artistas
-
-                
-                   
+            
         def BUSCAR_POSICION_CANCION(self,cancion):
             count=0
             found=False 

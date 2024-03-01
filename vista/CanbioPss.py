@@ -9,7 +9,6 @@ class CambioPss(QWidget):
     closed=Signal()
     def __init__(self):
         super().__init__()
-        # Le damos un tamaño y un título
         self.setWindowTitle("Recuperar contrasenia")
         self.mensage()
         self.controlador_usuario=controladorUsers()
@@ -19,8 +18,6 @@ class CambioPss(QWidget):
        
     def formulario(self):
             formulario = QFormLayout()
-
-            # configuraciones extra
             formulario.setLabelAlignment(Qt.AlignRight)
             formulario.setFormAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         
@@ -46,7 +43,7 @@ class CambioPss(QWidget):
             self.botonEnviar.clicked.connect(self.confirmacionContra)
             
             self.setLayout(formulario)
-        # asignamos el layout al widget
+
     def mensage(self):
          dialogo = QMessageBox.about(
          self, "Acerca de", "<p>Error de password</p><p>Tienes que resetearla</p>")

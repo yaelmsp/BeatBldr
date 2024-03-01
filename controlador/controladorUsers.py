@@ -25,6 +25,3 @@ class controladorUsers:
     def mostrarIdUsuario(self):
         return self.idUsuarioApp
 
-usuario=controladorUsers()
-rest=usuario.mostrar_usuarios()
-print(rest)

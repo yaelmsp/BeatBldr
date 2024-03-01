@@ -6,7 +6,6 @@ class   Playlist:
 
     @property   
     def id(self):
-        # print(self.nombre)
         return self.__id
     
     @property
@@ -27,5 +26,4 @@ class   Playlist:
 
     def MOSTRAR_INFO_PLAYLIST(self):
         playlist = 'Titulo:', self.__titulo, 'Propietario:', self.__id_propietario
-       # print(usuario)
         return playlist

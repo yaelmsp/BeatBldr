@@ -65,7 +65,6 @@
     <Content Include="assets\pause.png" />
     <Content Include="assets\skip.png" />
     <Content Include="assets\skip_der.png" />
-    <Content Include="assets\start.png" />
     <Content Include="assets\stop.png" />
     <Content Include="controlador\gestores\__pycache__\Users.cpython-312.pyc" />
     <Content Include="controlador\instancias\__pycache__\User.cpython-312.pyc" />

@@ -11,18 +11,15 @@ class User:
       
     @property   
     def id(self):
-        # print(self.nombre)
         return self.__id
 
     @property   
     def name(self):
-        # print(self.nombre)
         return self.__nombre
     
     @name.setter
     def name(self,nuevoNombre):
       self.__nombre = nuevoNombre
-      # print(self.GET_NOMBRE())
 
     @property
     def userName(self):
@@ -31,11 +28,9 @@ class User:
     @userName.setter
     def userName(self,usuNuevo):
         self.__nombre_usuario = usuNuevo
-        # print(self.GET_NOMBRE_USUARIO())
         
     @property
     def password(self):
-        # print(self.contrasenia)
         return self.__contrasenia
     
     @password.setter
@@ -64,7 +59,6 @@ class User:
     
     def GET_USER(self):
        usuario = 'Nombre:', self.__nombre, 'Apellido:', self.__apellido ,'Usuario:', self.__nombre_usuario, 'Pais:', self.__pais,'contra',self.__contrasenia
-       # print(usuario)
        return usuario
     
 

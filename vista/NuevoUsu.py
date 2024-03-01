@@ -67,10 +67,8 @@ class NuevoUsu(QWidget):
 
         # ahora debemos comprobar qué tipo de botón se devuelve
         if dialogo == QMessageBox.Yes:
-            print("Si")
             self.formulario()
         else:
-            print("No")
             dialogo = QMessageBox.about(
             self, "En ese caso", "<p>No puedes acceder</p><p>a la applicacion</p>")
         # podemos analizar el tipo de botón clicado para actuar en consecuencia
