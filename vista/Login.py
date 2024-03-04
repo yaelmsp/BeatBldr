@@ -13,14 +13,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Log In")
-        # self.titulo=QLabel("LOG IN")
-        # self.titulo.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         self.controlador_usuario=controladorUsers()
-       
-        
         self.formulario()
-        # self.layout = QVBoxLayout(self)
-        # self.layout.addWidget(self.titulo)
+
              
     def formulario(self):
         formulario = QFormLayout()

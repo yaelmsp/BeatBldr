@@ -30,6 +30,7 @@ class controladorSongs:
       for artista in idArtista:
             return self.controlador_artista.mostrarNombresArtistas(artista)
        
+     
     def buscarCancionesGeneros(self,idGeneros):
       count=0
       listaReproduccion=[]

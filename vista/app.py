@@ -5,7 +5,8 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from controlador.controladorSongs import controladorSongs
-
+from controlador.controladorUsers import controladorUsers
+from modelo.mock import CAMBIO_CONTRASENIA_MOCK
 
 
 class MainApp(QWidget):
@@ -15,11 +16,14 @@ class MainApp(QWidget):
         self.resize(500,500)
         self.mainWidget=QVBoxLayout()
         self.controlador_canciones=controladorSongs()
+        self.controlador_user=controladorUsers()
         self.generos=generos
         self.CancionesSelect=self.devolverGeneros()
         self.ListaCancionesLimpia=list(set(self.CancionesSelect))
         self.Pantalla()
         self.playerMenu()
+
+        
         
         logout=QtGui.QPixmap("./assets/log_out.png")
         self.logoutbutton = QPushButton()
@@ -150,9 +154,8 @@ class MainApp(QWidget):
         dialogo = QMessageBox.question(
             self, "Log out", "Te gustaria salir de la aplicacion")
 
-        # ahora debemos comprobar qué tipo de botón se devuelve
         if dialogo == QMessageBox.Yes:
+            CAMBIO_CONTRASENIA_MOCK()
             self.close()
-           
 
-       
+           

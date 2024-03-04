@@ -1,11 +1,11 @@
 from controlador.gestores.Users import Users
-from modelo.mock import ListaUsuario
+from modelo.mock import ListaUsuario, ListaCambioPss
 
 class controladorUsers:
     def __init__(self):  
         self.usuarios = ListaUsuario
         self.gestor_usuarios = Users(self.usuarios)
-        self.idUsuarioApp=int 
+        self.idUsuarioApp=None
         
     def mostrar_usuarios(self):
         self.gestor_usuarios.MOSTRAR_LISTA()
@@ -20,7 +20,11 @@ class controladorUsers:
         self.gestor_usuarios.AGREGAR_USUARIO(nombre,ape,usu,pss,pais)
 
     def modificarContrasenia(self,usu,passw):
-        self.gestor_usuarios.CAMBIAR_CONTRA(usu,passw)
+         self.gestor_usuarios.CAMBIAR_CONTRA(usu,passw)
+         posicion=self.gestor_usuarios.BUSCAR_POSICION_USUARIO(usu)
+         idUsu=self.usuarios[posicion].id
+         ListaCambioPss.append([idUsu,passw])
+         
         
     def mostrarIdUsuario(self):
         return self.idUsuarioApp

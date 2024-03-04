@@ -5,6 +5,7 @@ from controlador.instancias.Song import Song
 from controlador.instancias.Playlist import Playlist
 from controlador.instancias.Country import Country
 import pyodbc
+#Cargado Datos
 
 global ListaUsuario
 global ListaGeneros
@@ -12,11 +13,17 @@ global ListaArtitas
 global ListaSongs
 global ListaPlaylists
 
-try:
-    conn = pyodbc.connect('Driver={SQL Server};'
+#Listas Cambios
+global ListaCambioPss
+ListaCambioPss=[]
+
+conn = pyodbc.connect('Driver={SQL Server};'
                           'Server=INKAULA110;'
                           'Database=BeatBldr;'
                           'Trusted_Connection=yes;')
+
+
+try:
 
     ListaUsuario=[]
     cursor = conn.cursor()
@@ -80,3 +87,17 @@ except Exception as e:
 finally:
     cursor.close()
 
+
+def CAMBIO_CONTRASENIA_MOCK():
+    id=ListaCambioPss[0][0]
+    pss=ListaCambioPss[0][1]
+    
+    try:
+        cursor = conn.cursor()
+        sql='UPDATE Passwords SET Contrasenia=? WHERE id_Usuario= ? '
+        cursor.execute(sql, (pss, id))
+        cursor.commit()
+    except Exception as e:
+        print("Ocurrio un error al cargar los datos: ", e)
+    finally:
+        cursor.close()
