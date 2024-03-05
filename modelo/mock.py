@@ -40,7 +40,6 @@ conn = pyodbc.connect('Driver={SQL Server};'
 try:
 
     cursor = conn.cursor()
-    # ListaUsuario=[User(1,'Yael','M','yaelmsp','1234',1),User(2,'Jose','P','joseluuu','1234',2)]
     ListaUsuario=[]
     sql='Select u.id,u.Nombre,u.Apellido,u.Usuario,c.id as pais, p.Contrasenia FROM Users as u, Passwords as p, Countrys as c WHERE u.id=p.id_Usuario and u.Pais=c.id'
     cursor.execute(sql)

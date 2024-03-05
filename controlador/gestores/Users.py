@@ -45,7 +45,7 @@ class Users:
         fin = False
         respuesta = 0
 
-        while count < len(self.__listaUsuario) and not fin:
+        while count < len(self.__listaUsuario) and fin == False:
             if self.__listaUsuario[count].userName == usuarioname:
                 if self.__listaUsuario[count].password == contraCom:
                     fin = True
@@ -54,9 +54,6 @@ class Users:
                     fin = True
                     respuesta = 2  
             count += 1
-
-        if respuesta == 0:
-            respuesta = 3 
 
         return respuesta
    

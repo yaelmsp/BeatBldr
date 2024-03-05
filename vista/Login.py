@@ -57,7 +57,7 @@ class MainWindow(QMainWindow):
             self.mostrarApplicacion(idUsuApp)
         elif rest == 2:
             self.mostrarSubVentana()
-        elif rest==3:
+        elif rest==0:
             self.mostrarRegistro()
             
             
