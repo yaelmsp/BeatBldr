@@ -1,29 +1,25 @@
 
 
 from controlador.instancias.Playlist import Playlist
-from controlador.controladorUsers import controladorUsers
-
 
 class Playlists:
     def __init__(self,playlists):
         self.__listaPlaylists=playlists
 
 
-    def AGREGAR_PLAYLIST(self):
+    def AGREGAR_PLAYLIST(self,id_propietario):
         
-        idUserApp=controladorUsers()
-        idPropietario=idUserApp.mostrarIdUsuario()
-        
+        idUserApp=id_propietario
         idPlay=self.CREAR_ID()
         titulo=self.CREAR_TITULO_ALEATORIO(idPlay)
                    
-        nuevaPlaylist=Playlist(idPlay,titulo,idPropietario)
+        nuevaPlaylist=Playlist(idPlay,titulo,idUserApp)
         self.__listaPlaylists.append(nuevaPlaylist)
         
         
     def CREAR_TITULO_ALEATORIO(self,idPlay):
         idPlaylist=idPlay
-        titulo="Playlist Nueva",idPlaylist
+        titulo= '{} {}'.format("Playlist Nueva", idPlaylist)
         return titulo
     
         
@@ -48,6 +44,7 @@ class Playlists:
             
     def CREAR_ID(self):
         ultimoId = self.__listaPlaylists[-1].id
+        print('ultimo id',ultimoId)
         return ultimoId +1
     
     def MOSTRAR_PLAYLIST(self,idPlay):

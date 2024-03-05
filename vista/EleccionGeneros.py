@@ -10,8 +10,9 @@ from controlador.controladorUsers import controladorUsers
 
 
 class Generos(QWidget):
-    def __init__(self,oyentesElec):
+    def __init__(self,oyentesElec,idUsuApp):
         super().__init__()
+        self.idUsuApp=idUsuApp
         self.setWindowTitle("Elegir generos")
         self.oyentes = int(oyentesElec)
         self.controlador_generos=controladorGenres()
@@ -39,7 +40,7 @@ class Generos(QWidget):
             print('ERROR')
             
     def mostrarApp(self,generos):
-        self.subventana = MainApp(generos)
+        self.subventana = MainApp(generos,self.idUsuApp)
         self.subventana.show()  
 
        

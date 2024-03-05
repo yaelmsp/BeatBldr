@@ -4,8 +4,9 @@ from PySide6.QtWidgets import (
 from vista.EleccionGeneros import Generos
 
 class Eleccion(QWidget):
-    def __init__(self):
+    def __init__(self,idUsuApp):
         super().__init__()
+        self.idUsuApp=idUsuApp
         self.setWindowTitle("Elegir Oyentes")
         self.elegirOyentes()
         # Le damos un tamaño y un título
@@ -16,7 +17,7 @@ class Eleccion(QWidget):
             self.mostrarSubVentana(oyente)
                         
     def mostrarSubVentana(self,oyente):
-        self.subventana = Generos(oyente)
+        self.subventana = Generos(oyente,self.idUsuApp)
         self.subventana.show()  
         
             

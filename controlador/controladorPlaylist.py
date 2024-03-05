@@ -6,7 +6,7 @@ class ControladorPlaylist:
             self.playlist = ListaPlaylists
             self.gestor_Playlist = Playlists(self.playlist)
             
-        def crear_playlist(self):
-            self.gestor_Playlist.AGREGAR_PLAYLIST()  
-            self.gestor_Playlist.MOSTRAR_PLAYLIST(1)
+        def crear_playlist(self,idPropietario):
+            self.gestor_Playlist.AGREGAR_PLAYLIST(idPropietario)  
+
 

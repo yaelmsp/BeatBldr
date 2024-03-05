@@ -25,7 +25,3 @@ class controladorUsers:
          idUsu=self.usuarios[posicion].id
          ListaCambioPss.append([idUsu,passw])
          
-        
-    def mostrarIdUsuario(self):
-        return self.idUsuarioApp
-

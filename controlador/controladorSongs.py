@@ -34,6 +34,7 @@ class controladorSongs:
     def buscarCancionesGeneros(self,idGeneros):
       count=0
       listaReproduccion=[]
+      listaCanciones=[]
       canciones= self.gestor_Canciones.BUSCAR_CANCIONES_GENERO(idGeneros) 
       for cancion in canciones:
           cancionPlay = canciones[count][0]

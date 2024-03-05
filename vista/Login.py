@@ -51,17 +51,18 @@ class MainWindow(QMainWindow):
         nombre=str(self.huecoUsu.text())
         contra=str(self.huecoPss.text())
         rest=self.controlador_usuario.login(nombre,contra)
-        
+        idUsuApp=self.controlador_usuario.idUsuarioApp
+
         if rest==1:
-            self.mostrarApplicacion()
+            self.mostrarApplicacion(idUsuApp)
         elif rest == 2:
             self.mostrarSubVentana()
         elif rest==3:
             self.mostrarRegistro()
             
             
-    def mostrarApplicacion(self):
-        self.aplicacion = Eleccion()
+    def mostrarApplicacion(self,idUsuApp):
+        self.aplicacion = Eleccion(idUsuApp)
         self.aplicacion.show()     
         
     def mostrarSubVentana(self):

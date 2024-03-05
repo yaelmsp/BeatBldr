@@ -5,41 +5,64 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from controlador.controladorSongs import controladorSongs
-from controlador.controladorUsers import controladorUsers
+from controlador.controladorPlaylist import ControladorPlaylist
+
 from modelo.mock import CAMBIO_CONTRASENIA_MOCK
 
 
 class MainApp(QWidget):
-    def __init__(self,generos):
+    def __init__(self,generos,idUsuApp):
         super().__init__()
+        self.idUsuApp=idUsuApp
         self.setWindowTitle("App")
         self.resize(500,500)
         self.mainWidget=QVBoxLayout()
         self.controlador_canciones=controladorSongs()
-        self.controlador_user=controladorUsers()
+        self.controlador_playlist=ControladorPlaylist()
         self.generos=generos
         self.CancionesSelect=self.devolverGeneros()
         self.ListaCancionesLimpia=list(set(self.CancionesSelect))
+        self.functionMenu()
         self.Pantalla()
         self.playerMenu()
 
         
+    def functionMenu(self): 
+        BoxHLayout=QHBoxLayout()
         
         logout=QtGui.QPixmap("./assets/log_out.png")
         self.logoutbutton = QPushButton()
         self.logoutbutton.setIcon(QtGui.QIcon(logout))
        
-        self.mainWidget.addWidget(self.logoutbutton)
+        BoxHLayout.addWidget(self.logoutbutton)
        
-        self.logoutbutton.setStyleSheet("""
+        self.logoutbutton.setStyleSheet("""                                        
                                 QPushButton:hover {
                                     background-color: #DEC9E9;
                                     border:1px solid purple;
-                                   border-radius: 20px;
-                                   border-style: outset;
+                                       
                                 }""");
        
         self.logoutbutton.clicked.connect(self.Log_Out)
+            
+        guardar=QtGui.QPixmap("./assets/guardar.png")
+        self.guardarbutton = QPushButton()
+        self.guardarbutton.setIcon(QtGui.QIcon(guardar))
+        BoxHLayout.addWidget(self.guardarbutton) 
+        self.guardarbutton.setStyleSheet("""                                        
+                                QPushButton:hover {
+                                    background-color: #DEC9E9;
+                                    border:1px solid purple;
+                                       
+                                }""");
+       
+        self.guardarbutton.clicked.connect(self.crearPlaylist)
+        
+        widget = QWidget()
+        widget.setLayout(BoxHLayout)
+        self.mainWidget.addWidget(widget,alignment=Qt.AlignBottom)
+       
+        self.setLayout(self.mainWidget)
         
         
     def Pantalla(self):
@@ -82,6 +105,7 @@ class MainApp(QWidget):
     
             self.mainWidget.addWidget(scrollArea)
             self.setLayout(self.mainWidget)
+
           
     def playerMenu(self):
        
@@ -96,7 +120,6 @@ class MainApp(QWidget):
                                     background-color: #DEC9E9;
                                     border:1px solid purple;
                                 }""");
-       # self.playbutton.clicked.connect(self.play_pause)
        
        SkipIcon=QtGui.QPixmap("./assets/skip.png")
        self.Skipbutton = QPushButton()
@@ -149,6 +172,10 @@ class MainApp(QWidget):
     def devolverGeneros(self):
       canciones = self.controlador_canciones.mostrarGenerosElegidos(self.generos)
       return canciones
+  
+    def crearPlaylist(self):
+        id_propietario=self.idUsuApp
+        self.controlador_playlist.crear_playlist(id_propietario)
   
     def Log_Out(self):
         dialogo = QMessageBox.question(

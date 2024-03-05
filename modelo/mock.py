@@ -17,26 +17,33 @@ global ListaPlaylists
 global ListaCambioPss
 ListaCambioPss=[]
 
+# conn = pyodbc.connect('Driver={SQL Server};'
+#                       'Server=DESKTOP-QLOBOFM;'
+#                       'Database=BeatBldr;'
+#                       'Trusted_Connection=yes;')
+
 conn = pyodbc.connect('Driver={SQL Server};'
-                          'Server=INKAULA110;'
-                          'Database=BeatBldr;'
-                          'Trusted_Connection=yes;')
+                      'Server=DESKTOP-QLOBOFM;'
+                      'Database=BeatBldr;'
+                      'Trusted_Connection=yes;')
 
 
 try:
 
-    ListaUsuario=[]
     cursor = conn.cursor()
-    sql='Select u.id,u.Nombre,u.Apellido,u.Usuario,c.id as pais, p.Contrasenia FROM Users as u, Passwords as p, Countrys as c WHERE u.id=p.id_Usuario and u.Pais=c.id'
-    cursor.execute(sql)
-    for row in cursor:
-        nuevousu=User(row.id,row.Nombre,row.Apellido,row.Usuario,row.Contrasenia,row.pais)
-        ListaUsuario.append(nuevousu)
+    ListaUsuario=[User(1,'Yael','M','yaelmsp','1234',1),User(2,'Jose','P','joseluuu','1234',2)]
+    # sql='Select u.id,u.Nombre,u.Apellido,u.Usuario,c.id as pais, p.Contrasenia FROM Users as u, Passwords as p, Countrys as c WHERE u.id=p.id_Usuario and u.Pais=c.id'
+    # cursor.execute(sql)
+    # for row in cursor:
+    #     nuevousu=User(row.id,row.Nombre,row.Apellido,row.Usuario,row.Contrasenia,row.pais)
+    #     ListaUsuario.append(nuevousu)
 
     ListaGeneros=[]
     sql='Select * from Genres'
     cursor.execute(sql)
+    print(sql)
     for row in cursor:
+        print(row)
         nuevoGenero=Genre(row.id,row.Tipo)
         ListaGeneros.append(nuevoGenero)
 
