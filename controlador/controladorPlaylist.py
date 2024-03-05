@@ -9,4 +9,3 @@ class ControladorPlaylist:
         def crear_playlist(self,idPropietario):
             self.gestor_Playlist.AGREGAR_PLAYLIST(idPropietario)  
 
-

@@ -1,4 +1,5 @@
 from controlador.instancias.User import User
+from modelo.mock import ListaAddUser,ListaAddPss
 
 class Users:    
     def __init__(self,usuarios):
@@ -16,6 +17,9 @@ class Users:
             
         nuevousu=User(id,nombre,ape,usu,pss,pais)
         self.__listaUsuario.append(nuevousu)
+        ListaAddUser.append([id,nombre,ape,usu,pais])
+        ListaAddPss.append([id,pss])
+        
           
     
     def ELIMINAR_USUARIO_BY_USUARIO(self,usuEliminar):

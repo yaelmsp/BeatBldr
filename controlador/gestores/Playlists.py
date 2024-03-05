@@ -1,6 +1,7 @@
 
 
 from controlador.instancias.Playlist import Playlist
+from modelo.mock import ListaAddPlaylist
 
 class Playlists:
     def __init__(self,playlists):
@@ -15,6 +16,8 @@ class Playlists:
                    
         nuevaPlaylist=Playlist(idPlay,titulo,idUserApp)
         self.__listaPlaylists.append(nuevaPlaylist)
+        ListaAddPlaylist.append([idPlay,titulo,idUserApp])
+        
         
         
     def CREAR_TITULO_ALEATORIO(self,idPlay):
@@ -44,7 +47,6 @@ class Playlists:
             
     def CREAR_ID(self):
         ultimoId = self.__listaPlaylists[-1].id
-        print('ultimo id',ultimoId)
         return ultimoId +1
     
     def MOSTRAR_PLAYLIST(self,idPlay):

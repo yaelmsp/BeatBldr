@@ -1,5 +1,4 @@
 
-from ctypes import alignment
 from PySide6 import QtGui
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -7,7 +6,7 @@ from PySide6.QtWidgets import *
 from controlador.controladorSongs import controladorSongs
 from controlador.controladorPlaylist import ControladorPlaylist
 
-from modelo.mock import CAMBIO_CONTRASENIA_MOCK
+from modelo.mock import CAMBIO_CONTRASENIA_MOCK,ADD_PLAYLIST,ADD_USUARIO
 
 
 class MainApp(QWidget):
@@ -32,6 +31,7 @@ class MainApp(QWidget):
         
         logout=QtGui.QPixmap("./assets/log_out.png")
         self.logoutbutton = QPushButton()
+        self.logoutbutton.setToolTip('salir')
         self.logoutbutton.setIcon(QtGui.QIcon(logout))
        
         BoxHLayout.addWidget(self.logoutbutton)
@@ -47,6 +47,7 @@ class MainApp(QWidget):
             
         guardar=QtGui.QPixmap("./assets/guardar.png")
         self.guardarbutton = QPushButton()
+        self.guardarbutton.setToolTip('guardar')
         self.guardarbutton.setIcon(QtGui.QIcon(guardar))
         BoxHLayout.addWidget(self.guardarbutton) 
         self.guardarbutton.setStyleSheet("""                                        
@@ -176,6 +177,9 @@ class MainApp(QWidget):
     def crearPlaylist(self):
         id_propietario=self.idUsuApp
         self.controlador_playlist.crear_playlist(id_propietario)
+        dialogo = QMessageBox.about(
+        self, "Acerca de", "<p>La Playlist ha sido guardada</p>")
+        print(dialogo)
   
     def Log_Out(self):
         dialogo = QMessageBox.question(
@@ -183,6 +187,8 @@ class MainApp(QWidget):
 
         if dialogo == QMessageBox.Yes:
             CAMBIO_CONTRASENIA_MOCK()
+            ADD_PLAYLIST()
+            # ADD_USUARIO()
             self.close()
 
            
