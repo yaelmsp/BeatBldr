@@ -1,4 +1,4 @@
-
+﻿
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QApplication,QWidget,QFormLayout,QVBoxLayout)
 from PySide6.QtCore import Qt
@@ -28,13 +28,13 @@ class MainWindow(QMainWindow):
         Usuario=QLabel('Nombre Usuario: ')
         self.huecoUsu = QLineEdit()
         self.huecoUsu.setPlaceholderText("Escribe el nombre")
-        pss=QLabel('Contrasenia: ')
+        pss=QLabel('Contraseña: ')
         self.huecoPss = QLineEdit()
         self.huecoPss.setEchoMode(QLineEdit.Password)
-        self.huecoPss.setPlaceholderText("Escribe la contrasenia")
+        self.huecoPss.setPlaceholderText("Escribe la contraseña")
         self.botonEnviar=QPushButton('Enviar')
 
-        # a�adimos los elemntos a las columnas
+        # añadimos los elemntos a las columnas
         formulario.addRow(Usuario, self.huecoUsu)
         formulario.addRow(pss,self.huecoPss)
         formulario.addRow(self.botonEnviar)

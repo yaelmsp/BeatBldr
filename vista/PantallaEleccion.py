@@ -7,7 +7,7 @@ class Eleccion(QWidget):
     def __init__(self,idUsuApp):
         super().__init__()
         self.idUsuApp=idUsuApp
-        self.setWindowTitle("Elegir Oyentes")
+        self.setWindowTitle("Elegir generos")
         self.elegirOyentes()
         # Le damos un tamaño y un título
     def elegirOyentes(self):

@@ -1,4 +1,4 @@
-
+ï»¿
 from PySide6.QtWidgets import (
     QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox,QComboBox,QDialog)
 from PySide6.QtCore import Qt,Slot,Signal
@@ -48,7 +48,7 @@ class NuevoUsu(QWidget):
         pais=QLabel('Pais: ')
         self.pais = Dialogo(self.ListaPaises)
 
-        # añadimos los elemntos a las columnas
+   
         formulario.addRow(Usuario, self.huecoUsua)
         formulario.addRow(Ape,self.huecoApe)
         formulario.addRow(Usu,self.huecoUsu)
@@ -57,21 +57,17 @@ class NuevoUsu(QWidget):
         formulario.addRow(self.botonCrear)
         self.botonCrear.clicked.connect(self.agregarUsuario)
     
-        # cremos el widget dummy y le asignamos el layout
         self.setLayout(formulario)
         
     def mensages(self):
-        # creamos un diálogo de tipo cuestión
         dialogo = QMessageBox.question(
-            self, "Cuenta nueva", "Te gustaria hacerte una cuenta")
+            self, "Cuenta nueva", "Â¿Te gustarÃ­a hacerte una cuenta?")
 
-        # ahora debemos comprobar qué tipo de botón se devuelve
         if dialogo == QMessageBox.Yes:
             self.formulario()
         else:
             dialogo = QMessageBox.about(
-            self, "En ese caso", "<p>No puedes acceder</p><p>a la applicacion</p>")
-        # podemos analizar el tipo de botón clicado para actuar en consecuencia
+            self, "En ese caso", "<p>No puedes acceder</p><p>a la applicaciÃ³n</p>")
             print(dialogo)
             
     def mensageComprobar(self):

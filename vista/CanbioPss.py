@@ -1,4 +1,4 @@
-# from PySide6 import QtCore, QtWidgets, QtGui
+﻿# from PySide6 import QtCore, QtWidgets, QtGui
 from PySide6.QtWidgets import (
     QApplication, QDialog, QLabel, QFormLayout, QWidget,QLineEdit,QPushButton,QVBoxLayout,QMessageBox)
 from PySide6.QtCore import Qt,Signal,Slot
@@ -9,7 +9,7 @@ class CambioPss(QWidget):
     closed=Signal()
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Recuperar contrasenia")
+        self.setWindowTitle("Recuperar contraseña")
         self.mensage()
         self.controlador_usuario=controladorUsers()
 
@@ -25,17 +25,17 @@ class CambioPss(QWidget):
             Usuario=QLabel('Nombre Usuario: ')
             self.huecoUsu = QLineEdit()
             self.huecoUsu.setPlaceholderText("Escribe el nombre")
-            pss=QLabel('Contrasenia nueva: ')
+            pss=QLabel('Contraseña nueva: ')
             self.huecoPss = QLineEdit()
             self.huecoPss.setEchoMode(QLineEdit.Password) 
-            self.huecoPss.setPlaceholderText("Escribe nueva contrasenia")
-            pss2=QLabel('Contrasenia otra vez: ')
+            self.huecoPss.setPlaceholderText("Escribe nueva contraseña")
+            pss2=QLabel('Contraseña otra vez: ')
             self.huecoPss2 = QLineEdit()
             self.huecoPss2.setEchoMode(QLineEdit.Password)
-            self.huecoPss2.setPlaceholderText("Escribe nueva contrasenia otra vez")
+            self.huecoPss2.setPlaceholderText("Escribe nueva contraseña otra vez")
             self.botonEnviar=QPushButton('Enviar')
 
-            # a�adimos los elemntos a las columnas
+            # añadimos los elemntos a las columnas
             formulario.addRow(Usuario, self.huecoUsu)
             formulario.addRow(pss,self.huecoPss)
             formulario.addRow(pss2,self.huecoPss2)
@@ -46,7 +46,7 @@ class CambioPss(QWidget):
 
     def mensage(self):
          dialogo = QMessageBox.about(
-         self, "Acerca de", "<p>Error de password</p><p>Tienes que resetearla</p>")
+         self, "Acerca de", "<p>Error de Contraseña</p><p>Tienes que resetearla</p>")
          print(dialogo)
          
     def confirmacionContra(self):
@@ -63,7 +63,7 @@ class CambioPss(QWidget):
             
     def mensageErrorContra(self):
          dialogo = QMessageBox.about(
-         self, "Acerca de", "<p>Error de password</p><p>Las contrasenias no son iguales</p>")
+         self, "Acerca de", "<p>Error de Contraseña</p><p>Las contraseñas no son iguales</p>")
          print(dialogo)
          
     @Slot()

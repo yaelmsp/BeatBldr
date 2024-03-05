@@ -1,4 +1,4 @@
-
+﻿
 from PySide6 import QtGui
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -183,7 +183,7 @@ class MainApp(QWidget):
   
     def Log_Out(self):
         dialogo = QMessageBox.question(
-            self, "Log out", "Te gustaria salir de la aplicacion")
+            self, "Log out", "Te gustaría salir de la aplicación")
 
         if dialogo == QMessageBox.Yes:
             CAMBIO_CONTRASENIA_MOCK()

@@ -146,7 +146,6 @@ def ADD_USUARIO():
     print(len(ListaAddUser))
     
     if len(ListaAddUser)!=0 and len(ListaAddPss) !=0:
-        anio_nacimiento=date(0000, 0, 00)
         id=ListaAddUser[0][0]
         nombre=ListaAddUser[0][1]
         ape=ListaAddUser[0][2]
@@ -156,12 +155,10 @@ def ADD_USUARIO():
        
         try:
             cursor = conn.cursor()
-            sql='INSERT INTO Users VALUES(?,?,?,?,?,?)'
-            print(sql)
-            cursor.execute(sql, (id,nombre,ape,usu,id_pais,anio_nacimiento))
+            sql='INSERT INTO Users(id,Nombre,Apellido,Usuario,Pais) VALUES(?,?,?,?,?)'
+            cursor.execute(sql, (id,nombre,ape,usu,id_pais))
             sqlpss='INSERT INTO Passwords VALUES(?,?,?)'
-            print(sqlpss)
-            
+      
             cursor.execute(sqlpss, (id,pss,id))
             
             cursor.commit()
